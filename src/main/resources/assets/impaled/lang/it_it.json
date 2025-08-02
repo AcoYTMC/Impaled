@@ -1,0 +1,19 @@
+{
+     "death.attack.hellfork_heat": "%1$s è arrivato troppo caldo",
+     "death.attack.hellfork_heat.player": "%1$s è arrivato troppo caldo grazie a %2$s",
+
+     "item.impaled.ancient_trident": "Tridente antico",
+     "item.impaled.atlan": "Atlan",
+     "item.impaled.elder_guardian_eye": "Occhio di guardiano antico",
+     "item.impaled.elder_trident": "Tridente abissale",
+     "item.impaled.hellfork": "Forcone demoniaco",
+     "item.impaled.maelstrom": "Gorgo",
+     "item.impaled.pitchfork": "Forcone",
+     "item.impaled.smithing_template.trident_upgrade.additions_slot_description": "Inserisci una mela d'oro incantata, un occhio di guardiano o un tridente antico",
+     "item.impaled.smithing_template.trident_upgrade.applies_to": "Tridenti",
+     "item.impaled.smithing_template.trident_upgrade.base_slot_description": "Inserisci un tridente",
+     "item.impaled.smithing_template.trident_upgrade.ingredients": "Mela d'oro incantata, occhio di guardiano o tridente antico",
+     "item.impaled.soulfork": "Forcone delle anime",
+
+     "upgrade.impaled.trident_upgrade": "Miglioramento del tridente"
+}

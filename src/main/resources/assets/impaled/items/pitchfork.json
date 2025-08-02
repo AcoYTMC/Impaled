@@ -1,0 +1,37 @@
+{
+     "model": {
+          "type": "select",
+          "property": "display_context",
+          "cases": [
+               {
+                    "model": {
+                         "type": "model",
+                         "model": "impaled:item/pitchfork"
+                    },
+                    "when": [
+                         "gui",
+                         "ground",
+                         "fixed"
+                    ]
+               }
+          ],
+          "fallback": {
+               "type": "condition",
+               "property": "using_item",
+               "on_false": {
+                    "type": "special",
+                    "base": "impaled:item/trident_in_hand",
+                    "model": {
+                         "type": "impaled:pitchfork"
+                    }
+               },
+               "on_true": {
+                    "type": "special",
+                    "base": "impaled:item/trident_throwing",
+                    "model": {
+                         "type": "impaled:pitchfork"
+                    }
+               }
+          }
+     }
+}

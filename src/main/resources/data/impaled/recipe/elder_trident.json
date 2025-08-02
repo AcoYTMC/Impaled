@@ -1,0 +1,9 @@
+{
+     "type": "minecraft:smithing_transform",
+     "template": "impaled:trident_upgrade_smithing_template",
+     "base": "minecraft:trident",
+     "addition": "impaled:elder_guardian_eye",
+     "result": {
+          "id": "impaled:elder_trident"
+     }
+}

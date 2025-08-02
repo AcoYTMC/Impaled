@@ -1,0 +1,8 @@
+{
+     "item": "#impaled:tridents",
+     "scale": [1.0, 1.0, 1.0],
+     "rotation": [0.0, 0.0, 135.0],
+     "translation": [-1.47, -0.77, -0.5],
+     "mode": "NONE",
+     "sway": 0.5
+}

@@ -1,0 +1,11 @@
+{
+     "replace": false,
+     "values": [
+          "minecraft:trident",
+          "impaled:pitchfork",
+          "impaled:hellfork",
+          "impaled:soulfork",
+          "impaled:elder_trident",
+          "impaled:atlan"
+     ]
+}

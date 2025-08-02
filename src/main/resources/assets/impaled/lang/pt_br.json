@@ -1,0 +1,18 @@
+{
+     "death.attack.hellfork_heat": "%1$s foi cozido vivo",
+
+     "item.impaled.ancient_trident": "Tridente Ancestral",
+     "item.impaled.atlan": "Atlán",
+     "item.impaled.elder_guardian_eye": "Olho de Guardião-Mestre",
+     "item.impaled.elder_trident": "Tridente Ancião",
+     "item.impaled.hellfork": "Forcado Infernal",
+     "item.impaled.maelstrom": "Tempestuoso",
+     "item.impaled.pitchfork": "Forcado",
+     "item.impaled.smithing_template.trident_upgrade.additions_slot_description": "Adicione uma maçã encantada, olho de guardião, ou tridente ancestral",
+     "item.impaled.smithing_template.trident_upgrade.applies_to": "Tridentes",
+     "item.impaled.smithing_template.trident_upgrade.base_slot_description": "Adicione um tridente",
+     "item.impaled.smithing_template.trident_upgrade.ingredients": "Maçã Encantada, Olho de Guardião, ou Tridente Ancestral",
+     "item.impaled.soulfork": "Forcado de Almas",
+
+     "upgrade.impaled.trident_upgrade": "Melhoria de Tridente"
+}

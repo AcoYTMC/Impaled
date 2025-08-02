@@ -1,38 +1,43 @@
 {
-  "schemaVersion": 1,
-  "id": "impaled",
-  "version": "${version}",
-  "name": "Impaled",
-  "description": "Adds trident variants and a Sincere Loyalty enchantment upgrade for tridents.",
-  "authors": [
-    "doctor4t",
-    "ArathainFarqoe",
-    "Pyrofab"
-  ],
-  "contact": {
-    "sources": "https://github.com/Ladysnake/Impaled",
-    "issues": "https://github.com/Ladysnake/Impaled/issues"
-  },
-  "license": "ARR",
-  "icon": "assets/impaled/impaled.png",
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "ladysnake.impaled.common.Impaled",
-      "ladysnake.sincereloyalty.SincereLoyalty"
-    ],
-    "client": [
-      "ladysnake.impaled.client.ImpaledClient",
-      "ladysnake.sincereloyalty.SincereLoyaltyClient::INSTANCE"
-    ]
-  },
-  "mixins": [
-    "impaled.mixins.json",
-    "sincereloyalty.mixins.json"
-  ],
-  "depends": {
-    "fabricloader": ">=0.15.0",
-    "java": ">=17",
-    "fabric": ">=0.48.0"
-  }
+	"schemaVersion": 1,
+	"id": "impaled",
+	"version": "${version}",
+	"name": "Impaled",
+	"description": "Adds trident variants and a Sincere Loyalty enchantment upgrade for tridents.",
+	"authors": [
+		"doctor4t",
+		"ArathainFarqoe",
+		"Pyrofab"
+	],
+	"contact": {
+		"sources": "https://github.com/Ladysnake/Impaled",
+		"issues": "https://github.com/Ladysnake/Impaled/issues"
+	},
+	"license": "ARR",
+	"icon": "assets/impaled/impaled.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"org.ladysnake.impaled.common.Impaled"
+		],
+          "client": [
+               "org.ladysnake.impaled.client.ImpaledClient"
+          ]
+	},
+	"mixins": [
+		"impaled.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.8",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"custom": {
+		"loom:injected_interfaces": {
+			"net/minecraft/class_8109": [
+				"org/ladysnake/impaled/common/damage/DamageSourcesExt"
+			]
+		}
+	}
 }

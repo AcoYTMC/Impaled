@@ -1,0 +1,16 @@
+{
+     "type": "minecraft:crafting_shaped",
+     "pattern": [
+          "#S#",
+          "#P#",
+          "###"
+     ],
+     "key": {
+          "#": "minecraft:diamond",
+          "P": "minecraft:prismarine",
+          "S": "minecraft:nautilus_shell"
+     },
+     "result": {
+          "id": "impaled:trident_upgrade_smithing_template"
+     }
+}
