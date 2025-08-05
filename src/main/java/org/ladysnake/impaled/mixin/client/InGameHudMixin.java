@@ -14,7 +14,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.GameMode;
 import org.ladysnake.impaled.common.item.ElderTridentItem;
 import org.ladysnake.impaled.common.util.EnchantmentListener;
-import org.ladysnake.mialeemisc.entities.IPlayerTargeting;
+import org.ladysnake.impaled.common.util.IPlayerTargeting;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

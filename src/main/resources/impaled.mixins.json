@@ -20,6 +20,7 @@
           "client.EntityRendererMixin",
           "client.InGameHudMixin",
           "client.InGameOverlayRendererMixin",
+          "client.MinecraftClientMixin",
           "client.PlayerEntityRendererMixin",
           "client.SpecialModelTypesMixin",
           "client.TridentRiptideFeatureRendererMixin"

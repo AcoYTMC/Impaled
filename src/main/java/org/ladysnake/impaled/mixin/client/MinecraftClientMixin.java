@@ -1,4 +1,4 @@
-package org.ladysnake.mialeemisc.mixin.client;
+package org.ladysnake.impaled.mixin.client;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -11,7 +11,7 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.Nullable;
-import org.ladysnake.mialeemisc.entities.IPlayerTargeting;
+import org.ladysnake.impaled.common.util.IPlayerTargeting;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -28,12 +28,13 @@ public abstract class MinecraftClientMixin {
     @Shadow @Nullable public ClientPlayerEntity player;
     @Shadow @Nullable public ClientWorld world;
 
-    @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/tutorial/TutorialManager;tick()V"))
-    public void mialeeMisc$setLastTarget(CallbackInfo ci) {
+    @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/tutorial/TutorialManager;tick(Lnet/minecraft/client/world/ClientWorld;Lnet/minecraft/util/hit/HitResult;)V"))
+    public void mialeeMisc$getLastTarget(CallbackInfo ci) {
         Entity camera = this.getCameraEntity();
         if (this.player == null || camera == null || this.world == null) {
             return;
         }
+
         double distanceCap = 128f * 128f;
         Vec3d cameraPos = camera.getCameraPosVec(1.0f);
         Vec3d cameraRot = camera.getRotationVec(1.0f);

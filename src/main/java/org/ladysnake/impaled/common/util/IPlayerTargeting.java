@@ -1,4 +1,4 @@
-package org.ladysnake.mialeemisc.entities;
+package org.ladysnake.impaled.common.util;
 
 import net.minecraft.entity.LivingEntity;
 

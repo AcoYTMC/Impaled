@@ -12,12 +12,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.packet.s2c.play.GameStateChangeS2CPacket;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.ladysnake.impaled.common.util.EnchantmentListener;
-import org.ladysnake.mialeemisc.entities.IPlayerTargeting;
+import org.ladysnake.impaled.common.util.IPlayerTargeting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,14 +75,14 @@ public class ElderTridentEntity extends ImpaledTridentEntity {
     }
 
     @Override
-    public void setDealtDamage() {
+    protected void setDealtDamage() {
         this.setNoGravity(false);
         this.tridentTarget = null;
         super.setDealtDamage();
     }
 
     @Override
-    public void onEntityHit(EntityHitResult entityHitResult) {
+    protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         if (this.getWorld() instanceof ServerWorld && EnchantmentListener.hasEnchantment(this.asItemStack(), "minecraft:channeling") && entityHitResult.getEntity() instanceof LivingEntity livingEntity) {
             if (livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 200, 2))) {
@@ -118,5 +120,22 @@ public class ElderTridentEntity extends ImpaledTridentEntity {
             }
         }
         super.remove(reason);
+    }
+
+    @Override
+    public void readCustomData(ReadView view) {
+        super.readCustomData(view);
+        if (view.getOptionalTypedListView("fetched_items", ItemStack.CODEC).isPresent()) {
+            ReadView.TypedListReadView<ItemStack> fetchedItems = view.getTypedListView("fetched_items", ItemStack.CODEC);
+            for (int i = 0; i < fetchedItems.stream().count(); i++) {
+                ItemStack stack = fetchedItems.stream().toList().get(i);
+                this.fetchedStacks.add(stack);
+            }
+        }
+    }
+
+    @Override
+    public void writeCustomData(WriteView view) {
+        super.writeCustomData(view);
     }
 }

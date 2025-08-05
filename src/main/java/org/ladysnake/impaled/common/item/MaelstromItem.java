@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.RangedWeaponItem;
 import net.minecraft.item.TridentItem;
 import net.minecraft.item.consume.UseAction;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -18,7 +19,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import org.ladysnake.impaled.common.Impaled;
 import org.ladysnake.impaled.common.util.EnchantmentListener;
 
 import java.util.function.Predicate;
@@ -58,7 +58,7 @@ public class MaelstromItem extends RangedWeaponItem {
                 Inventory inventory = player.getInventory();
                 for (int i = 0; i < inventory.size(); i++) {
                     ItemStack stackToThrow = player.getInventory().getStack(i);
-                    if (!stackToThrow.isEmpty() && !EnchantmentListener.hasEnchantment(stackToThrow, "minecraft:loyalty") && stackToThrow.isIn(Impaled.TRIDENTS)) {
+                    if (!stackToThrow.isEmpty() && !EnchantmentListener.hasEnchantment(stackToThrow, "minecraft:loyalty") && stackToThrow.isIn(ItemTags.TRIDENT_ENCHANTABLE)) {
                         TridentEntity trident = null;
                         stackToThrow.damage(1, player);
                         maelstromStack.damage(1, player);
@@ -91,7 +91,7 @@ public class MaelstromItem extends RangedWeaponItem {
     }
     
     public Predicate<ItemStack> getProjectiles() {
-        return itemStack -> itemStack.isIn(Impaled.TRIDENTS);
+        return itemStack -> itemStack.isIn(ItemTags.TRIDENT_ENCHANTABLE);
     }
 
     public int getRange() {

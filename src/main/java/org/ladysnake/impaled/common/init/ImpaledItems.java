@@ -32,20 +32,25 @@ public interface ImpaledItems {
 
     // Tridents
     Item PITCHFORK = create("pitchfork", settings -> new PitchforkItem(settings, ImpaledEntityTypes.PITCHFORK), new Item.Settings()
+            .enchantable(1)
             .maxDamage(150));
 
     Item HELLFORK = create("hellfork", settings -> new HellforkItem(settings, ImpaledEntityTypes.HELLFORK), new Item.Settings()
+            .enchantable(1)
             .maxDamage(325)
             .fireproof());
 
     Item SOULFORK = create("soulfork", settings -> new HellforkItem(settings, ImpaledEntityTypes.SOULFORK), new Item.Settings()
+            .enchantable(1)
             .maxDamage(325)
             .fireproof());
 
     Item ELDER_TRIDENT = create("elder_trident", settings -> new ElderTridentItem(settings, ImpaledEntityTypes.ELDER_TRIDENT), new Item.Settings()
+            .enchantable(1)
             .maxDamage(250));
 
     Item ATLAN = create("atlan", settings -> new AtlanItem(settings, ImpaledEntityTypes.ATLAN), new Item.Settings()
+            .enchantable(1)
             .maxDamage(250));
 
     // Other

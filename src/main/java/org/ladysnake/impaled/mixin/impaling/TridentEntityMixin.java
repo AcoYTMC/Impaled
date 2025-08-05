@@ -9,6 +9,8 @@ import org.ladysnake.impaled.common.enchantment.BetterImpaling;
 import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Constant;
+import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Debug(export = true)
@@ -18,10 +20,9 @@ public abstract class TridentEntityMixin extends PersistentProjectileEntity {
         super(entityType, world);
     }
 
-    @ModifyVariable(
+    @ModifyConstant(
             method = "onEntityHit",
-            at = @At(value = "STORE", ordinal = 0),
-            ordinal = 0
+            constant = @Constant(ordinal = 0)
     )
     private float getAttackDamage(float baseDamage, EntityHitResult result) {
         return baseDamage + BetterImpaling.getAttackDamage(this.getItemStack(), result.getEntity());
