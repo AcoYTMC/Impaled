@@ -47,12 +47,6 @@ public class HellforkItem extends ImpaledTridentItem {
     }
 
     @Override
-    public void postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        target.setOnFireFor(4 + attacker.getRandom().nextInt(4));
-        super.postHit(stack, target, attacker);
-    }
-
-    @Override
     protected boolean canRiptide(PlayerEntity player) {
         return Impaled.isHoldingSoulfork(player) || player.isInLava() || player.isOnFire();
     }

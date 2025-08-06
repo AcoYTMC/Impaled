@@ -1,4 +1,4 @@
-package org.ladysnake.impaled.mixin.client;
+package org.ladysnake.impaled.mixin.mialeemisc;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;

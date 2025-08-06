@@ -8,12 +8,12 @@ import net.minecraft.entity.mob.ElderGuardianEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.TridentEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.Nullable;
+import org.ladysnake.impaled.common.Impaled;
 import org.ladysnake.impaled.common.entity.ElderTridentEntity;
 import org.ladysnake.impaled.common.init.ImpaledItems;
 import org.ladysnake.impaled.common.util.EnchantmentListener;
@@ -39,7 +39,7 @@ public abstract class LivingEntityMixin extends EntityMixin {
             this.impaled$dropSink = entity.getStackFetcher();
         }
 
-        if (living instanceof ElderGuardianEntity && (directSource instanceof PlayerEntity player && player.getMainHandStack().isIn(ItemTags.TRIDENT_ENCHANTABLE) || (directSource instanceof TridentEntity trident && EnchantmentListener.hasEnchantment(trident.getItemStack(), "minecraft:loyalty")))) {
+        if (living instanceof ElderGuardianEntity && (directSource instanceof PlayerEntity player && player.getMainHandStack().isIn(Impaled.TRIDENTS) || (directSource instanceof TridentEntity trident && EnchantmentListener.hasEnchantment(trident.getItemStack(), "minecraft:loyalty")))) {
             this.dropStack(world, new ItemStack(ImpaledItems.ELDER_GUARDIAN_EYE));
             this.getWorld().playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.NEUTRAL, 1.0f, 1.0f);
         }

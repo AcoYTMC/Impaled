@@ -1,43 +1,33 @@
 package org.ladysnake.impaled.mixin;
 
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import org.jetbrains.annotations.Nullable;
-import org.ladysnake.impaled.common.util.IPlayerTargeting;
-import org.ladysnake.impaled.common.util.TargetingUtil;
+import net.minecraft.world.World;
+import org.ladysnake.impaled.common.item.HellforkItem;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
-public class PlayerEntityMixin implements IPlayerTargeting {
-    @Unique @Nullable LivingEntity lastTarget;
-    @Unique int targetDecayTime;
-
-    @Override
-    public LivingEntity mialeeMisc$getLastTarget() {
-        return this.lastTarget;
+public abstract class PlayerEntityMixin extends LivingEntity {
+    protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
+        super(entityType, world);
     }
 
-    @Override
-    public void mialeeMisc$setLastTarget(LivingEntity target) {
-        this.lastTarget = target;
-        this.targetDecayTime = 60;
-        if (target != null) {
-            ClientPlayNetworking.send(new TargetingUtil.TargetPayload(target.getId()));
-        }
-    }
-
-    @Inject(method = "tick", at = @At("TAIL"))
-    private void mialeeMisc$decayTarget(CallbackInfo ci) {
-        if (targetDecayTime > 0) {
-            this.targetDecayTime--;
-            if (this.targetDecayTime == 0) {
-                this.mialeeMisc$setLastTarget(null);
-            }
+    @Inject(
+            method = "attack",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/entity/player/PlayerEntity;getDamageAgainst(Lnet/minecraft/entity/Entity;FLnet/minecraft/entity/damage/DamageSource;)F"
+            )
+    )
+    private void impaled$hellforkFix(Entity target, CallbackInfo ci) {
+        PlayerEntity player = (PlayerEntity)(Object)this;
+        if (player.getMainHandStack().getItem() instanceof HellforkItem) {
+            target.setOnFireFor(4 + player.getRandom().nextInt(4));
         }
     }
 }

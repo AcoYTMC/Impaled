@@ -8,11 +8,13 @@
           "EntityEnchantmentEffectMixin",
           "EntityMixin",
           "LivingEntityMixin",
+          "PlayerEntityMixin",
           "RiptideStackAccessor",
           "TridentEntityAccessor",
           "impaling.MobEntityMixin",
           "impaling.PlayerEntityMixin",
-          "impaling.TridentEntityMixin"
+          "impaling.TridentEntityMixin",
+          "mialeemisc.PlayerEntityMixin"
      ],
      "client": [
           "access.PlayerEntityRendererMixin",
@@ -20,15 +22,15 @@
           "client.EntityRendererMixin",
           "client.InGameHudMixin",
           "client.InGameOverlayRendererMixin",
-          "client.MinecraftClientMixin",
           "client.PlayerEntityRendererMixin",
           "client.SpecialModelTypesMixin",
-          "client.TridentRiptideFeatureRendererMixin"
+          "client.TridentRiptideFeatureRendererMixin",
+          "mialeemisc.MinecraftClientMixin"
      ],
      "injectors": {
           "defaultRequire": 1
      },
      "overwrites": {
           "requireAnnotations": true
-     }
+  }
 }
